@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amerelo <amerelo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/14 13:03:51 by bmartins          #+#    #+#             */
-/*   Updated: 2014/11/17 14:01:25 by bmartins         ###   ########.fr       */
+/*   Created: 2015/11/29 18:50:29 by amerelo           #+#    #+#             */
+/*   Updated: 2015/11/30 15:45:58 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t	len_str;
-	char	*str;
+	char	*sol;
+	int		x;
 
-	if (!s)
+	x = 0;
+	sol = (char *)malloc(sizeof(char) * (len + 1));
+	if (!sol)
 		return (NULL);
-	len_str = ft_strlen(s);
-	if (start > len_str || len > len_str)
-		return (NULL);
-	if (start + len > len_str)
-		return (NULL);
-	if (!(str = ft_strnew(len + 1)))
-		return (NULL);
-	str = ft_strncpy(str, s + start, len);
-	str[len] = '\0';
-	return (str);
+	while (s[start] && len--)
+	{
+		sol[x] = s[start];
+		x++;
+		start++;
+	}
+	sol[x] = '\0';
+	return (sol);
 }

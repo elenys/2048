@@ -3,23 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amerelo <amerelo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/14 12:49:00 by bmartins          #+#    #+#             */
-/*   Updated: 2014/11/17 17:09:45 by bmartins         ###   ########.fr       */
+/*   Created: 2015/11/27 18:08:42 by amerelo           #+#    #+#             */
+/*   Updated: 2015/11/27 18:08:47 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (s1 && s2)
+	int	x;
+
+	x = 0;
+	if (n == 0)
+		return (1);
+	while ((unsigned char)s1[x] == (unsigned char)s2[x] && s1[x] &&
+		s2[x] && n--)
 	{
-		if (!ft_strncmp(s1, s2, n))
+		if (n == 0 && (unsigned char)s1[x] == (unsigned char)s2[x])
 			return (1);
-		else
+		else if (n == 0 && (unsigned char)s1[x] != (unsigned char)s2[x])
 			return (0);
+		x++;
 	}
-	return (0);
+	if ((unsigned char)s1[x] == (unsigned char)s2[x])
+		return (1);
+	else
+		return (0);
 }

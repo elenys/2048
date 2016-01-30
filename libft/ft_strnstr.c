@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amerelo <amerelo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/12 12:14:50 by bmartins          #+#    #+#             */
-/*   Updated: 2015/12/08 10:28:59 by bmartins         ###   ########.fr       */
+/*   Created: 2015/11/25 15:46:20 by amerelo           #+#    #+#             */
+/*   Updated: 2015/11/25 15:46:26 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	int			x;
+	size_t		v;
 
-	i = ft_strlen(s2);
-	if (!*s2)
+	v = n;
+	if (*s2 == 0)
 		return ((char *)s1);
-	if (i > (size_t)ft_strlen(s1) || i > n)
-		return (NULL);
-	while (*s1 && i <= n)
+	while (*s1 && n > 0)
 	{
-		if (!ft_memcmp(s1, s2, i))
+		x = 0;
+		while (s1[x] == s2[x] && s1[x] && s2[x] && (n - x) > 0)
+			x++;
+		if (s2[x] == '\0' || n == 0)
 			return ((char *)s1);
 		s1++;
 		n--;
 	}
-	return (NULL);
+	return (0);
 }

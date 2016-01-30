@@ -3,49 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amerelo <amerelo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/16 13:04:56 by bmartins          #+#    #+#             */
-/*   Updated: 2014/11/16 16:45:27 by bmartins         ###   ########.fr       */
+/*   Created: 2015/11/29 11:08:25 by amerelo           #+#    #+#             */
+/*   Updated: 2015/11/29 11:08:28 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t		ft_cptdigit(int n)
+static size_t	intlen(int n)
 {
-	size_t			dig;
+	size_t			x;
+	unsigned int	v;
 
-	dig = 1;
-	while (n /= 10)
-		dig++;
-	return (dig);
+	x = 1;
+	v = n;
+	if (n < 0)
+	{
+		x++;
+		v = (unsigned int)n * (-1);
+	}
+	while (v >= 10)
+	{
+		v = (v / 10);
+		x++;
+	}
+	return (x);
 }
 
-char				*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	size_t			dig;
-	size_t			ncp;
-	char			*str;
+	char			*tmp;
+	size_t			size;
+	unsigned int	x;
 
-	ncp = n;
-	dig = ft_cptdigit(n);
-	if (n == -2147483648)
-	{
-		str = ft_strdup("-2147483648");
-		return (str);
-	}
-	if (n < 0)
-	{
-		dig++;
-		ncp = -n;
-	}
-	if (!(str = ft_strnew(dig)))
+	if (n == 0)
+		return (ft_strdup("0"));
+	size = intlen(n);
+	tmp = (char *)malloc(sizeof(char) * (size));
+	if (!tmp)
 		return (NULL);
-	str[--dig] = ncp % 10 + '0';
-	while (ncp /= 10)
-		str[--dig] = ncp % 10 + '0';
+	x = n;
 	if (n < 0)
-		str[0] = '-';
-	return (str);
+	{
+		x = (unsigned int)n * -1;
+		tmp[0] = '-';
+	}
+	tmp[size--] = '\0';
+	while (x)
+	{
+		tmp[size--] = ((x % 10) + '0');
+		x = (x / 10);
+	}
+	return (tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 10:33:14 by bmartins          #+#    #+#             */
-/*   Updated: 2015/12/08 18:20:08 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/30 12:12:46 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 #define GAME_H
 
 # include "libft.h"
+# include <curses.h>
 
 #endif

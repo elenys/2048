@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstrim.c                                      :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amerelo <amerelo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/14 14:51:45 by bmartins          #+#    #+#             */
-/*   Updated: 2015/01/03 11:35:25 by bmartins         ###   ########.fr       */
+/*   Created: 2015/11/28 18:31:12 by amerelo           #+#    #+#             */
+/*   Updated: 2015/11/28 18:32:04 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
-	int		len;
-	int		i;
-	char	*s1;
+	char	*tmp;
+	size_t	x;
+	size_t	y;
+	size_t	o;
 
-	i = 0;
-	if (!s)
+	x = 0;
+	o = 0;
+	y = ft_strlen(s);
+	while ((s[x] == ' ') || (s[x] == '\n') || (s[x] == '\t'))
+		x++;
+	while (((s[y - 1] == ' ') || (s[y - 1] == '\n') || (s[y - 1] == '\t')) && \
+			(x != y))
+		y--;
+	tmp = (char *)malloc(sizeof(char) * ((y - x) + 1));
+	if (!tmp)
 		return (NULL);
-	while (ft_isspace(*s) && *s)
-		s++;
-	len = ft_strlen(s);
-	while (s[i])
-		i++;
-	i--;
-	while (ft_isspace(s[i]) && i >= 0 && *s)
+	while (y - (o + x))
 	{
-		len--;
-		i--;
+		tmp[o] = s[x + o];
+		o++;
 	}
-	if (!(s1 = ft_strnew(len + 1)))
-		return (NULL);
-	ft_strncpy(s1, s, (len));
-	s1[len + i] = '\0';
-	return (s1);
+	tmp[o] = '\0';
+	return (tmp);
 }

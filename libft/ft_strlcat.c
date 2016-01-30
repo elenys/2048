@@ -3,36 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amerelo <amerelo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/12 15:02:14 by bmartins          #+#    #+#             */
-/*   Updated: 2014/11/17 17:08:25 by bmartins         ###   ########.fr       */
+/*   Created: 2015/11/26 12:27:36 by amerelo           #+#    #+#             */
+/*   Updated: 2015/11/26 12:27:46 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	size_dst;
-	size_t	size_src;
-	size_t	size_n;
+	size_t	x;
+	size_t	y;
 
-	size_n = size;
-	size_dst = ft_strlen(dst);
-	size_src = ft_strlen(src);
-	while (*dst && size_n)
-	{
-		dst++;
-		size_n--;
-	}
-	if (!size_n)
-		return (size + size_src);
-	while (*src && size_n > 1)
-	{
-		*dst++ = *src++;
-		size_n--;
-	}
-	*dst = '\0';
-	return (size_dst + size_src);
+	x = ft_strlen((const char *)dst);
+	y = ft_strlen(src);
+	if (size <= x)
+		return (size + y);
+	if (x + y < size)
+		ft_strcat(dst, src);
+	else
+		ft_strncat(dst, src, (y - (x + y - (size - 1))));
+	return (x + y);
 }

@@ -6,7 +6,7 @@
 /*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 13:50:47 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 15:10:20 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:34:19 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ void		exit_game(t_env *env)
 	exit(0);
 }
 
-static void init_graph(void)
+static void	init_graph(void)
 {
 	initscr();
 	cbreak();
 	keypad(stdscr, TRUE);
 	noecho();
 }
-
 
 static int	get_key(t_env *env, int ch)
 {
@@ -42,13 +41,13 @@ static int	get_key(t_env *env, int ch)
 	else if (ch == KEY_DOWN)
 		move = ft_move_down(env->board, env->board_size, 0, env);
 	else if (ch == 410)
-		check_size(env);
+		check_size();
 	else if (ch == 27)
 		exit_game(env);
 	return (move);
 }
 
-void	game_loop(t_env *env)
+void		game_loop(t_env *env)
 {
 	init_graph();
 	while (1)
@@ -58,8 +57,12 @@ void	game_loop(t_env *env)
 		{
 			env->up = 0;
 			rand_num(env);
+<<<<<<< HEAD
 		}
 
 		ft_check_status(env);
+=======
+		winv_valid(env);
+>>>>>>> 143a4582739c30bbcec864edd42a7296a56d4f66
 	}
 }

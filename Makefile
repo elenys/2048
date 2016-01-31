@@ -6,7 +6,7 @@
 #    By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 10:30:38 by bmartins          #+#    #+#              #
-#    Updated: 2016/01/31 16:28:08 by bmartins         ###   ########.fr        #
+#    Updated: 2016/01/31 19:25:32 by amerelo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DIR_O = ./objs/
 
 FILE_C = main.c winv_valid.c ft_move_left.c ft_creat_tab.c rand_num.c\
 ft_power_x.c ft_move_right.c ft_move_up.c ft_move_down.c check.c display.c \
-graph.c ft_check_status.c ft_defeat.c
+graph.c ft_defeat.c
 
 FILE_O = $(FILE_C:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 10:33:14 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 19:17:28 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 19:25:51 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,4 @@ void				ft_test(t_env *env);
 void				rand_num(t_env *env);
 void				game_loop(t_env *env);
 void				print_board(t_env *env);
-void				ft_check_status(t_env *env);
 #endif

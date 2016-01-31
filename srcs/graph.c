@@ -6,7 +6,7 @@
 /*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 13:50:47 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 18:19:21 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 19:24:47 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void			game_loop(t_env *env)
 		if (env->left && env->right && env->up && env->down)
 		{
 			ft_defeat();
+			env->exit = 1;
 		}
 	}
 }

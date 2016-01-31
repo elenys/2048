@@ -6,7 +6,7 @@
 #    By: amerelo <amerelo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 15:00:07 by amerelo           #+#    #+#              #
-#    Updated: 2015/11/30 21:48:59 by amerelo          ###   ########.fr        #
+#    Updated: 2016/01/31 19:20:38 by bmartins         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -34,7 +34,6 @@ all: $(NAME)
 $(NAME):
 	gcc $(FLAGS) -c $(SRC) -I ./includes/
 	ar rc $(NAME) $(OBJ)
-
 
 clean:
 	rm -rf $(OBJ)

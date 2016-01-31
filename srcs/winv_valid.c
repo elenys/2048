@@ -6,7 +6,7 @@
 /*   By: amerelo <amerelo@student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 19:03:59 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 19:33:36 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		print_victory(void)
 
 void			ft_test(t_env *env)
 {
-	if (env->max == WIN_VALUE && env->cont == 0)
+	if (env->max >= WIN_VALUE && env->cont == 0)
 	{
 		env->cont = 1;
 		print_victory();

@@ -6,7 +6,7 @@
 /*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 13:50:47 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 16:18:31 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:28:36 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	get_key(t_env *env, int ch)
 	else if (ch == KEY_DOWN)
 		move = ft_move_down(env->board, env->board_size, 0);
 	else if (ch == 410)
-		check_size(env);
+		check_size();
 	else if (ch == 27)
 		exit_game(env);
 	return (move);

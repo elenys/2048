@@ -6,7 +6,7 @@
 #    By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 10:30:38 by bmartins          #+#    #+#              #
-#    Updated: 2016/01/31 14:18:33 by bmartins         ###   ########.fr        #
+#    Updated: 2016/01/31 16:28:08 by bmartins         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ DIR_C = ./srcs/
 
 DIR_O = ./objs/
 
-
 FILE_C = main.c winv_valid.c ft_move_left.c ft_creat_tab.c rand_num.c\
 ft_power_x.c ft_move_right.c ft_move_up.c ft_move_down.c check.c display.c \
 graph.c
@@ -29,7 +28,7 @@ SRC_C := $(addprefix $(DIR_C), $(FILE_C))
 
 SRC_O := $(addprefix $(DIR_O), $(FILE_O))
 
-FLAGS = -Wall -Wextra  
+FLAGS = -Wall -Wextra -Werror 
 
 all: $(NAME)
 

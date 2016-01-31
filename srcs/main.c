@@ -6,7 +6,7 @@
 /*   By: amerelo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 14:27:34 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:14:38 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main (void)
 	env.board[8] = 2;
 	env.board[3] = 2;
 	env.board[15] = 4;
+	env.cont = 0;
 	game_loop(&env);
 	free(env.board);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 13:50:47 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 15:10:20 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:10:19 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void init_graph(void)
 	keypad(stdscr, TRUE);
 	noecho();
 }
-
 
 static void	get_key(t_env *env, int ch)
 {
@@ -51,6 +50,6 @@ void	game_loop(t_env *env)
 	{
 		print_board(env);
 		get_key(env, getch());
-//		rand_num(env);
+		winv_valid(env);
 	}
 }

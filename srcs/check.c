@@ -9,7 +9,7 @@ void		check_size(t_env *env)
 			clear();
 			mvprintw(0, 0, "Insufisant win size");
 			refresh();
-			sleep(1);
+			usleep(50000);
 		}
 	}
 }

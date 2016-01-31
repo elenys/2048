@@ -6,19 +6,19 @@
 /*   By: amerelo <amerelo@student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/30 13:21:07 by amerelo          ###   ########.fr       */
+/*   Updated: 2016/01/31 19:12:35 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-static int		t_line(int *tab, int *tmpx, int x)
+static int	t_line(int *tab, int *tmpx, int x)
 {
 	int i;
 
 	i = (x - *tmpx);
 	++i;
-	while(i < x)
+	while (i < x)
 	{
 		if (tab[i] != 0)
 			return (0);
@@ -27,7 +27,7 @@ static int		t_line(int *tab, int *tmpx, int x)
 	return (1);
 }
 
-static void		ft_move_left2(t_env *env, int x, int *tmpx, int *on)
+static void	ft_move_left2(t_env *env, int x, int *tmpx, int *on)
 {
 	if ((env->board[x - *tmpx]) == 0)
 	{
@@ -37,29 +37,30 @@ static void		ft_move_left2(t_env *env, int x, int *tmpx, int *on)
 		on[1] = 0;
 		on[2] = 1;
 	}
-	else if ((env->board[x - *tmpx]) == env->board[x] && on[1] == 0 && 
-		t_line(env->board, tmpx, x))
+	else if ((env->board[x - *tmpx]) == env->board[x] && on[1] == 0 &&
+			t_line(env->board, tmpx, x))
 	{
 		env->board[x - *tmpx] += env->board[x];
 		env->board[x] = 0;
 		on[0] = 0;
 		on[1] = 1;
 		on[2] = 1;
-		env->max = (env->board[x - *tmpx] > env->max) ? env->board[x - *tmpx] : env->max;
+		env->max = (env->board[x - *tmpx] > env->max) ?
+			env->board[x - *tmpx] : env->max;
 	}
 	else if ((env->board[x - *tmpx]) == env->board[x] && on[1] == 1)
 		on[1] = 0;
 	env->left = 1;
 }
 
-int		ft_move_left(int *tab, int tab_s, int x, t_env *env)
+int			ft_move_left(int *tab, int tab_s, int x, t_env *env)
 {
 	int tmpx;
 	int on[3];
 
 	on[1] = 0;
 	on[2] = 0;
-	while(x < tab_s)
+	while (x < tab_s)
 	{
 		if (tab[x] != 0)
 		{

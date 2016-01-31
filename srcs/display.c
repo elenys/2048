@@ -6,7 +6,7 @@
 /*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 13:41:09 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 16:02:20 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 19:14:23 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ static void		print_value(int *tab)
 	while (i < 16)
 	{
 		if (tab[i] != 0)
-				mvprintw(hight * (i / 4) + LINES / 8, width * (i % 4) + 1 + COLS / 8 -
-					size_nb(tab[i]), "%d", tab[i]);
+			mvprintw(hight * (i / 4) + LINES / 8, width * (i % 4) + 1
+				+ COLS / 8 - size_nb(tab[i]), "%d", tab[i]);
 		i++;
 	}
 	refresh();

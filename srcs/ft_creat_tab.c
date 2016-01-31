@@ -6,7 +6,7 @@
 /*   By: amerelo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/30 13:21:07 by amerelo          ###   ########.fr       */
+/*   Updated: 2016/01/31 19:13:07 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			*ft_creat_tab(int size)
 	size = ft_power_x(size);
 	final_tab = (int *)malloc(sizeof(int ) * (size + 1));
 	if (!final_tab)
-		return(NULL);
+		return (NULL);
 	final_tab[size + 1] = '\0';
 	while (x < size)
 	{

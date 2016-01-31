@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_down.c                                    :+:      :+:    :+:    */
+/*   ft_move_down.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amerelo <amerelo@student.fr>               +#+  +:+       +#+        */
+/*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/30 13:21:07 by amerelo          ###   ########.fr       */
+/*   Created: 2016/01/31 19:10:33 by bmartins          #+#    #+#             */
+/*   Updated: 2016/01/31 19:10:52 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-static int		t_col(int *tab, int x, int tab_s)
+static int	t_col(int *tab, int x, int tab_s)
 {
 	int i;
 
 	i = (tab_s - 1);
 	i -= TAB_SIZE + (3 - (x % TAB_SIZE));
-	while(i > x)
+	while (i > x)
 	{
 		if (tab[i] != 0 && tab[i] != tab[x])
 			return (0);
@@ -27,16 +27,15 @@ static int		t_col(int *tab, int x, int tab_s)
 	return (1);
 }
 
-
-static void		ft_move_down2(t_env *env, int x, int *on , int tab_s)
+static void	ft_move_down2(t_env *env, int x, int *on, int tab_s)
 {
 	int i;
 
 	i = (tab_s - 1) - (3 - (x % TAB_SIZE));
-	while(i > x)
+	while (i > x)
 	{
-		if (env->board[i] != 0 && env->board[i] == env->board[x] && 
-			on[0] == 0 && t_col(env->board, x, tab_s))
+		if (env->board[i] != 0 && env->board[i] == env->board[x] &&
+				on[0] == 0 && t_col(env->board, x, tab_s))
 		{
 			env->board[i] += env->board[x];
 			env->board[x] = 0;
@@ -56,7 +55,7 @@ static void		ft_move_down2(t_env *env, int x, int *on , int tab_s)
 	}
 }
 
-int		ft_move_down(int *tab, int tab_s, int x, t_env *env)
+int			ft_move_down(int *tab, int tab_s, int x, t_env *env)
 {
 	int i;
 	int t;
@@ -64,7 +63,7 @@ int		ft_move_down(int *tab, int tab_s, int x, t_env *env)
 
 	i = TAB_SIZE;
 	t = 0;
-	while(i > 0)
+	while (i > 0)
 	{
 		x = 11 - t;
 		on[0] = 0;

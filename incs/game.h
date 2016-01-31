@@ -6,7 +6,7 @@
 /*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 10:33:14 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/30 12:12:46 by amerelo          ###   ########.fr       */
+/*   Updated: 2016/01/31 15:08:51 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ enum e_const
 };
 
 int			*ft_creat_tab(int size);
-void		rand_num(int *tab, int tab_s);
+
 void		ft_move_left(int *tab, int tab_s, int x);
 void		ft_move_right(int *tab, int tab_s);
 void		ft_move_up(int *tab, int x);
@@ -36,12 +36,15 @@ int			winv_valid(void);
 
 typedef struct		s_env
 {
+	int				*board;
 	int				board_size;
-	int				**board;
+	int				*last_board;
 	WINDOW			*win;
 }					t_env;
 
+void				game_loop(t_env *env);
 void				check_size(t_env *env);
 void				print_board(t_env *env);
+void				rand_num(t_env *env);
 
 #endif

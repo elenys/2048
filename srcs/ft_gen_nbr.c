@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rand_num.c                                         :+:      :+:    :+:   */
+/*   ft_gen_nbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amerelo <amerelo@student.fr>               +#+  +:+       +#+        */
+/*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 14:59:55 by bmartins         ###   ########.fr       */
+/*   Created: 2016/01/31 14:48:13 by bmartins          #+#    #+#             */
+/*   Updated: 2016/01/31 14:57:13 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#i:qnclude "game.h"
 
-void		rand_num(t_env *env)
+
+void	gen_nbr(t_env *env)
 {
-	int x;
-	time_t t;
+	int i;
+	int nbr;
+	int *tab_empty;
 
-	srand((unsigned) time(&t));
-
-	x = rand() % env->board_size;
-	while(env->board[x] != 0)
-		x = rand() % env->board_size;
-	if ((rand() % 10) < 9)
-		env->board[x] = 2;
+	i = 0;
+ 	if (rand % 4 == 0)
+		nbr = 4
 	else
-		env->board[x] = 4;
+		nbr = 2;
+	while (i < env->board->size)
+	{
+		
+	}
 }

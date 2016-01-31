@@ -1,11 +1,22 @@
-# include "game.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   display.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/31 13:41:09 by bmartins          #+#    #+#             */
+/*   Updated: 2016/01/31 14:26:52 by bmartins         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "game.h"
 
-static void		print_v_line()
+static void		print_v_line(void)
 {
-	int i;
-	int width;
-	int hight;
+	int			i;
+	int			width;
+	int			hight;
 
 	i = 0;
 	width = COLS / 4;
@@ -22,11 +33,11 @@ static void		print_v_line()
 	refresh();
 }
 
-static void		print_h_line()
+static void		print_h_line(void)
 {
-	int i;
-	int width;
-	int hight;
+	int			i;
+	int			width;
+	int			hight;
 
 	i = 0;
 	hight = LINES / 4;
@@ -50,12 +61,11 @@ static int		size_nb(int nb)
 	return (ft_strlen(ft_itoa(nb)) / 2);
 }
 
-static void		print_value(int **tab)
+static void		print_value(int *tab)
 {
-	int i;
-	int j;
-	int width;
-	int hight;
+	int			i;
+	int			width;
+	int			hight;
 
 	i = 0;
 	hight = LINES / 4;
@@ -64,21 +74,17 @@ static void		print_value(int **tab)
 	width = (COLS / 4);
 	if (COLS % 4 == 0)
 		width -= 1;
-	while (i < 4)
+	while (i < 16)
 	{
-		j = 0;
-		while (j < 4)
-		{
-			mvprintw(hight * i + LINES / 8, width * j  + 1 + COLS / 8 -
-				size_nb(tab[i][j]) , "%d", tab[i][j]);
-			j++;
-		}
+		if (tab[i] != 0)
+				mvprintw(hight * (i / 4) + LINES / 8, width * (i % 4) + 1 + COLS / 8 -
+					size_nb(tab[i]), "%d", tab[i]);
 		i++;
 	}
 	refresh();
 }
 
-void		print_board(t_env *env)
+void			print_board(t_env *env)
 {
 	clear();
 	print_value(env->board);

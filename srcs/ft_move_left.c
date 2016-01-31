@@ -49,7 +49,7 @@ static void		ft_move_left2(int *tab, int x, int *tmpx, int *on)
 		on[1] = 0;
 }
 
-int		ft_move_left(int *tab, int tab_s, int x)
+int		ft_move_left(int *tab, int tab_s, int x, t_env *env)
 {
 	int tmpx;
 	int on[3];

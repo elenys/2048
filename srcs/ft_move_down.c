@@ -53,7 +53,7 @@ static void		ft_move_down2(int *tab, int x, int *on , int tab_s)
 	}
 }
 
-int		ft_move_down(int *tab, int tab_s, int x)
+int		ft_move_down(int *tab, int tab_s, int x, t_env *env)
 {
 	int i;
 	int t;

@@ -48,7 +48,7 @@ static void		ft_move_right2(int *tab, int s, int *tmpx, int *on)
 		on[1] = 0;
 }
 
-int		ft_move_right(int *tab, int tab_s)
+int		ft_move_right(int *tab, int tab_s, t_env *env)
 {
 	int tmpx;
 	int on[3];

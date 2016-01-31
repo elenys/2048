@@ -24,14 +24,9 @@ enum e_const
 	TAB_SIZE = 4
 };
 
-int			*ft_creat_tab(int size);
-
-int		ft_move_left(int *tab, int tab_s, int x);
-int		ft_move_right(int *tab, int tab_s);
-int		ft_move_up(int *tab, int x);
-int		ft_move_down(int *tab, int tab_s, int x);
-int			ft_power_x(int x);
-int			winv_valid(void);
+int		*ft_creat_tab(int size);
+int		ft_power_x(int x);
+int		winv_valid(void);
 
 
 typedef struct		s_env
@@ -39,9 +34,21 @@ typedef struct		s_env
 	int				*board;
 	int				board_size;
 	int				*last_board;
+
+	int				left;
+	int				right;
+	int				up;
+	int				down;
+	int				max;
 	WINDOW			*win;
 }					t_env;
 
+
+int					ft_move_left(int *tab, int tab_s, int x, t_env *env);
+int					ft_move_right(int *tab, int tab_s, t_env *env);
+int					ft_move_up(int *tab, int x, t_env *env);
+int					ft_move_down(int *tab, int tab_s, int x, t_env *env);
+void				ft_check_status(t_env *env);
 void				game_loop(t_env *env);
 void				check_size(t_env *env);
 void				print_board(t_env *env);

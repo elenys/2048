@@ -18,7 +18,7 @@ static int		t_col(int *tab, int x)
 
 	i = (x % TAB_SIZE);
 	i += TAB_SIZE;
-	while(i < x)
+	while (i < x)
 	{
 		if (tab[i] != 0 && tab[i] != tab[x])
 			return (0);
@@ -27,18 +27,20 @@ static int		t_col(int *tab, int x)
 	return (1);
 }
 
-static void		ft_move_up2(int *tab, int x, int *on)
+static void		ft_move_up2(int *tab, int x, int *on, t_env *env)
 {
 	int i;
 
 	i = (x % TAB_SIZE);
-	while(i < x)
+	while (i < x)
 	{
 		if (tab[i] != 0 && tab[i] == tab[x] && 	on[0] == 0 && t_col(tab, x))
 		{
 				tab[i] += tab[x];
 				tab[x] = 0;
 				on[0] = 1;
+				env->up = 1;
+				env->max = (tab[1] > env->max) ? tab[1] : env->max;
 				on[1] = 1;
 		}
 		else if (tab[i] == 0)
@@ -52,7 +54,7 @@ static void		ft_move_up2(int *tab, int x, int *on)
 	}
 }
 
-int		ft_move_up(int *tab, int x)
+int		ft_move_up(int *tab, int x, t_env *env)
 {
 	int i;
 	int on[2];
@@ -65,7 +67,7 @@ int		ft_move_up(int *tab, int x)
 		while (x < TAB_SIZE * TAB_SIZE)
 		{
 			if (tab[x] != 0)
-				ft_move_up2(tab, x, on);
+				ft_move_up2(tab, x, on, env);
 			if ((x / TAB_SIZE) == 3 && tab[x - TAB_SIZE] == tab[x])
 			{
 				tab[x - TAB_SIZE] += tab[x];

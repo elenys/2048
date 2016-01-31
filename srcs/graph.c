@@ -34,13 +34,13 @@ static int	get_key(t_env *env, int ch)
 
 	move = 0;
 	if (ch == KEY_LEFT)
-		move = ft_move_left(env->board, env->board_size, 0);
+		move = ft_move_left(env->board, env->board_size, 0, env);
 	else if (ch == KEY_RIGHT)
-		move = ft_move_right(env->board, env->board_size);
+		move = ft_move_right(env->board, env->board_size, env);
 	else if (ch == KEY_UP)
-		move = ft_move_up(env->board, env->board_size);
+		move = ft_move_up(env->board, env->board_size, env);
 	else if (ch == KEY_DOWN)
-		move = ft_move_down(env->board, env->board_size, 0);
+		move = ft_move_down(env->board, env->board_size, 0, env);
 	else if (ch == 410)
 		check_size(env);
 	else if (ch == 27)
@@ -54,8 +54,12 @@ void	game_loop(t_env *env)
 	while (1)
 	{
 		print_board(env);
-
 		if (get_key(env, getch()))
+		{
+			env->up = 0;
 			rand_num(env);
+		}
+
+		ft_check_status(env);
 	}
 }

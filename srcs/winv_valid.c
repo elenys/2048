@@ -6,13 +6,13 @@
 /*   By: amerelo <amerelo@student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 16:36:57 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 19:03:59 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-static void	print_victory(void)
+static void		print_victory(void)
 {
 	clear();
 	mvprintw(LINES / 2, COLS / 2 - 4, "YOU WIN!");
@@ -24,8 +24,7 @@ static void	print_victory(void)
 	sleep(3);
 }
 
-
-void	ft_test(t_env *env)
+void			ft_test(t_env *env)
 {
 	if (env->max == WIN_VALUE && env->cont == 0)
 	{
@@ -34,7 +33,7 @@ void	ft_test(t_env *env)
 	}
 }
 
-int			winv_valid(t_env *env)
+int				winv_valid(t_env *env)
 {
 	int a;
 	int b;
@@ -47,7 +46,7 @@ int			winv_valid(t_env *env)
 		b = a % 2;
 		a = a / 2;
 		if (b != 0)
-			return(0);
+			return (0);
 		if (a == 2)
 			return (1);
 	}

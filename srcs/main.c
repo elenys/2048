@@ -6,7 +6,7 @@
 /*   By: amerelo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 18:19:25 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 19:04:22 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	init_env(t_env *env)
 int			main(void)
 {
 	t_env	env;
-	
+
 	init_env(&env);
 	if (!winv_valid(&env))
 		ft_putendl("Wrong Win Value");

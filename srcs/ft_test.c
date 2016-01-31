@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   winv_valid.c                                       :+:      :+:    :+:   */
+/*   ft_test.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerelo <amerelo@student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,22 +12,28 @@
 
 #include "game.h"
 
-int				winv_valid(t_env *env)
+static void		print_victory(void)
 {
-	int a;
-	int b;
+	clear();
+	mvprintw(LINES / 2, COLS / 2 - 4, "YOU WIN!");
+	mvhline(LINES / 2 - 2, COLS / 2 - 10, 0, 21);
+	mvvline(LINES / 2 - 1, COLS / 2 - 10, 0, 4);
+	mvvline(LINES / 2 - 1, COLS / 2 + 10, 0, 4);
+	mvhline(LINES / 2 + 2, COLS / 2 - 10, 0, 21);
+	refresh();
+	sleep(3);
+}
 
-	a = WIN_VALUE;
-	if (a == 2 && env->cont != 1)
-		return (1);
-	while (a > 2)
+void			ft_test(t_env *env)
+{
+	if (env->max == WIN_VALUE && env->cont == 0)
 	{
-		b = a % 2;
-		a = a / 2;
-		if (b != 0)
-			return (0);
-		if (a == 2)
-			return (1);
+		env->cont = 1;
+		print_victory();
 	}
-	return (0);
+	else if (env->max == 8192)
+	{
+		env->cont = 1;
+		print_victory();
+	}
 }

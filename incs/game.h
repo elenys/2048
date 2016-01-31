@@ -45,6 +45,7 @@ int					ft_move_left(int *tab, int tab_s, int x, t_env *env);
 int					ft_move_down(int *tab, int tab_s, int x, t_env *env);
 
 void				ft_defeat(void);
+void				ft_test(t_env *env);
 void				check_size(void);
 void				ft_test(t_env *env);
 void				rand_num(t_env *env);

@@ -6,7 +6,7 @@
 /*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 10:33:14 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 16:41:00 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 17:03:18 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@
 # include <stdlib.h>
 # include <time.h>
 
-enum		e_const
-{
-	WIN_VALUE = 8,
-};
+# define TAB_SIZE 4
+# define WIN_VALUE 8
 
 typedef struct		s_env
 {

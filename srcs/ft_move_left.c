@@ -35,6 +35,7 @@ static void		ft_move_left2(int *tab, int x, int *tmpx, int *on)
 		tab[x] = 0;
 		on[0] = 0;
 		on[1] = 0;
+		on[2] = 1;
 	}
 	else if ((tab[x - *tmpx]) == tab[x] && on[1] == 0 && t_line(tab, tmpx, x))
 	{
@@ -42,17 +43,20 @@ static void		ft_move_left2(int *tab, int x, int *tmpx, int *on)
 		tab[x] = 0;
 		on[0] = 0;
 		on[1] = 1;
+		on[2] = 1;
 	}
 	else if ((tab[x - *tmpx]) == tab[x] && on[1] == 1)
 		on[1] = 0;
 }
 
-void		ft_move_left(int *tab, int tab_s, int x)
+int		ft_move_left(int *tab, int tab_s, int x)
 {
 	int tmpx;
-	int on[2];
+	int on[3];
+
 
 	on[1] = 0;
+	on[2] = 0;
 	while(x < tab_s)
 	{
 		if (tab[x] != 0)
@@ -68,4 +72,5 @@ void		ft_move_left(int *tab, int tab_s, int x)
 		++x;
 		on[1] = ((x / TAB_SIZE) != ((x - 1) / TAB_SIZE)) ? 0 : on[1];
 	}
+	return (on[2]);
 }

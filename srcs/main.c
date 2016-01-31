@@ -15,13 +15,10 @@
 
 int main (void)
 {
-	// if (winv_valid())
-	// 	printf("OK\n");
-	// else
-	// 	printf("NO\n");
-
 	t_env	env;
 
+	if (!winv_valid())
+		exit_game(env);
 	env.board_size = ft_power_x(TAB_SIZE);
 	env.board = ft_creat_tab(TAB_SIZE);
 	env.board[0] = 2;

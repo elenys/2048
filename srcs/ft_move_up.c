@@ -34,36 +34,38 @@ static void		ft_move_up2(int *tab, int x, int *on)
 	i = (x % TAB_SIZE);
 	while(i < x)
 	{
-		if (tab[i] != 0 && tab[i] == tab[x] && 	*on == 0 && t_col(tab, x))
+		if (tab[i] != 0 && tab[i] == tab[x] && 	on[0] == 0 && t_col(tab, x))
 		{
 				tab[i] += tab[x];
 				tab[x] = 0;
-				*on = 1;
+				on[0] = 1;
+				on[1] = 1;
 		}
 		else if (tab[i] == 0)
 		{
 			tab[i] = tab[x];
 			tab[x] = 0;
-			*on = 0;
+			on[0] = 0;
+			on[1] = 1;
 		}
 		i += TAB_SIZE;
 	}
 }
 
-void		ft_move_up(int *tab, int x)
+int		ft_move_up(int *tab, int x)
 {
 	int i;
-	int on;
+	int on[2];
 
 	i = 0;
 	while(i < TAB_SIZE)
 	{
 		x = TAB_SIZE + i;
-		on = 0;
+		on[0] = 0;
 		while (x < TAB_SIZE * TAB_SIZE)
 		{
 			if (tab[x] != 0)
-				ft_move_up2(tab, x, &on);
+				ft_move_up2(tab, x, on);
 			if ((x / TAB_SIZE) == 3 && tab[x - TAB_SIZE] == tab[x])
 			{
 				tab[x - TAB_SIZE] += tab[x];
@@ -73,4 +75,5 @@ void		ft_move_up(int *tab, int x)
 		}
 		i++;
 	}
+	return (on[1]);
 }

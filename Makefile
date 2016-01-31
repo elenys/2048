@@ -18,7 +18,7 @@ DIR_C = ./srcs/
 
 DIR_O = ./objs/
 
-FILE_C = main.c 
+FILE_C = main.c display.c check.c
 
 FILE_O = $(FILE_C:.c=.o)
 
@@ -26,12 +26,12 @@ SRC_C := $(addprefix $(DIR_C), $(FILE_C))
 
 SRC_O := $(addprefix $(DIR_O), $(FILE_O))
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra  
 
 all: $(NAME)
 
 $(NAME): $(SRC_O)
-	@clang -o $(NAME) $(SRC_O) -L libft/ -lft
+	@clang -o $(NAME) $(SRC_O) -L libft/ -lft -lncurses
 
 $(SRC_O): $(SRC_C)
 	@make -C libft/

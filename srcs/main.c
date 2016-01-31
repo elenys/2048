@@ -16,5 +16,6 @@ int				main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
+	main_boucle();
 	return (0);
 }

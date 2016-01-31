@@ -16,4 +16,15 @@
 # include "libft.h"
 # include <curses.h>
 
+
+typedef struct		s_env
+{
+	int				board_size;
+	int				**board;
+	WINDOW			*win;
+}					t_env;
+
+void				check_size(t_env *env);
+void				print_board(t_env *env);
+
 #endif

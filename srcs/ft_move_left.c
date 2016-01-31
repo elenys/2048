@@ -36,8 +36,6 @@ static void		ft_move_left2(t_env *env, int x, int *tmpx, int *on)
 		on[0] = 0;
 		on[1] = 0;
 		on[2] = 1;
-		env->left = 1;
-		env->max = (env->board[1] > env->max) ? env->board[1] : env->max;
 	}
 	else if ((env->board[x - *tmpx]) == env->board[x] && on[1] == 0 && 
 		t_line(env->board, tmpx, x))
@@ -47,9 +45,11 @@ static void		ft_move_left2(t_env *env, int x, int *tmpx, int *on)
 		on[0] = 0;
 		on[1] = 1;
 		on[2] = 1;
+		env->max = (env->board[x - *tmpx] > env->max) ? env->board[x - *tmpx] : env->max;
 	}
 	else if ((env->board[x - *tmpx]) == env->board[x] && on[1] == 1)
 		on[1] = 0;
+	env->left = 1;
 }
 
 int		ft_move_left(int *tab, int tab_s, int x, t_env *env)

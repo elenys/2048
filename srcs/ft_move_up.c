@@ -39,8 +39,7 @@ static void		ft_move_up2(int *tab, int x, int *on, t_env *env)
 				tab[i] += tab[x];
 				tab[x] = 0;
 				on[0] = 1;
-				env->up = 1;
-				env->max = (tab[1] > env->max) ? tab[1] : env->max;
+				env->max = (tab[i] > env->max) ? tab[i] : env->max;
 				on[1] = 1;
 		}
 		else if (tab[i] == 0)
@@ -50,6 +49,7 @@ static void		ft_move_up2(int *tab, int x, int *on, t_env *env)
 			on[0] = 0;
 			on[1] = 1;
 		}
+		env->up = 1;
 		i += TAB_SIZE;
 	}
 }

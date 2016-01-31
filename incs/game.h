@@ -21,7 +21,7 @@
 
 
 # define TAB_SIZE 4
-# define WIN_VALUE 8
+# define WIN_VALUE 2048
 
 typedef struct		s_env
 {
@@ -49,6 +49,8 @@ int					ft_power_x(int x);
 int					winv_valid(t_env *env);
 int					*ft_creat_tab(int size);
 
+void				ft_test(t_env *env);
+void				ft_defeat(void);
 
 void				check_size(void);
 void				rand_num(t_env *env);

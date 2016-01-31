@@ -29,10 +29,15 @@ static void	init_env(t_env *env)
 int			main(void)
 {
 	t_env	env;
-
+	
 	init_env(&env);
-	game_loop(&env);
-	free(env.board);
-	endwin();
+	if (!winv_valid(&env))
+		ft_putendl("Wrong Win Value");
+	else
+	{
+		game_loop(&env);
+		free(env.board);
+		endwin();
+	}
 	return (0);
 }

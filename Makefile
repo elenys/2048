@@ -20,7 +20,7 @@ DIR_O = ./objs/
 
 FILE_C = main.c winv_valid.c ft_move_left.c ft_creat_tab.c rand_num.c\
 ft_power_x.c ft_move_right.c ft_move_up.c ft_move_down.c check.c display.c \
-graph.c ft_check_status.c
+graph.c ft_check_status.c ft_defeat.c
 
 FILE_O = $(FILE_C:.c=.o)
 

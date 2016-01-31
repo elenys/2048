@@ -51,15 +51,19 @@ static int		get_key(t_env *env, int ch)
 void			game_loop(t_env *env)
 {
 	init_graph();
+	ft_test(env);
 	while (env->exit == 0)
 	{
-		winv_valid(env);
 		print_board(env);
 		if (get_key(env, getch()))
 		{
+			ft_test(env);
 			rand_num(env);
-
+			reset_touch(env);
 		}
-		reset_touch(env);
+		if (env->left && env->right && env->up && env->down)
+		{
+			ft_defeat();
+		}
 	}
 }

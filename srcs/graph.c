@@ -6,7 +6,7 @@
 /*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 13:50:47 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 16:28:36 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:34:19 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		exit_game(t_env *env)
 	exit(0);
 }
 
-static void init_graph(void)
+static void	init_graph(void)
 {
 	initscr();
 	cbreak();
@@ -47,7 +47,7 @@ static int	get_key(t_env *env, int ch)
 	return (move);
 }
 
-void	game_loop(t_env *env)
+void		game_loop(t_env *env)
 {
 	init_graph();
 	while (1)

@@ -6,22 +6,21 @@
 /*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 10:33:14 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 16:27:30 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:41:00 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
-#define GAME_H
+# define GAME_H
 
 # include "libft.h"
 # include <curses.h>
 # include <stdlib.h>
 # include <time.h>
 
-enum e_const
+enum		e_const
 {
 	WIN_VALUE = 8,
-	TAB_SIZE = 4
 };
 
 typedef struct		s_env

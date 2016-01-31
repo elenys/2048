@@ -6,7 +6,7 @@
 /*   By: amerelo <amerelo@student.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 16:30:40 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:36:57 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			winv_valid(t_env *env)
 			env->cont = 1;
 		}
 		if (a == 2)
-			return(0);
+			return (0);
 	}
-	return(0);
+	return (0);
 }

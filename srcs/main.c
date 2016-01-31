@@ -6,14 +6,13 @@
 /*   By: amerelo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 16:25:53 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 16:35:54 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-#include <stdio.h>
 
-int main (void)
+int	main(void)
 {
 	t_env	env;
 

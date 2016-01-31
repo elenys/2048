@@ -27,24 +27,27 @@ static int		t_line(int *tab, int *tmpx, int s)
 	return (1);
 }
 
-static void		ft_move_right2(int *tab, int s, int *tmpx, int *on)
+static void		ft_move_right2(t_env *env, int s, int *tmpx, int *on)
 {
-	if ((tab[s + *tmpx]) == 0)
+	if ((env->board[s + *tmpx]) == 0)
 	{
-		tab[s + *tmpx] = tab[s];
-		tab[s] = 0;
+		env->board[s + *tmpx] = env->board[s];
+		env->board[s] = 0;
 		on[0] = 0;
 		on[2] = 1;
+		env->right = 1;
+		env->max = (env->board[1] > env->max) ? env->board[1] : env->max;
 	}
-	else if ((tab[s + *tmpx]) == tab[s] && on[1] == 0 && t_line(tab, tmpx, s))
+	else if ((env->board[s + *tmpx]) == env->board[s] && on[1] == 0 &&
+	 t_line(env->board, tmpx, s))
 	{
-		tab[s + *tmpx] += tab[s];
-		tab[s] = 0;
+		env->board[s + *tmpx] += env->board[s];
+		env->board[s] = 0;
 		on[0] = 0;
 		on[1] = 1;
 		on[2] = 1;
 	}
-	else if ((tab[s + *tmpx]) == tab[s] && on[1] == 1)
+	else if ((env->board[s + *tmpx]) == env->board[s] && on[1] == 1)
 		on[1] = 0;
 }
 
@@ -63,7 +66,7 @@ int		ft_move_right(int *tab, int tab_s, t_env *env)
 			on[0] = 1;
 			while (on[0] && tmpx != 0)
 			{
-				ft_move_right2(tab, tab_s, &tmpx, on);
+				ft_move_right2(env, tab_s, &tmpx, on);
 				--tmpx;
 			}
 		}

@@ -57,12 +57,8 @@ void		game_loop(t_env *env)
 		{
 			env->up = 0;
 			rand_num(env);
-<<<<<<< HEAD
 		}
-
 		ft_check_status(env);
-=======
-		winv_valid(env);
->>>>>>> 143a4582739c30bbcec864edd42a7296a56d4f66
+		// winv_valid(env);
 	}
 }

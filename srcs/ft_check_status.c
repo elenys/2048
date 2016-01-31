@@ -12,18 +12,18 @@
 
 #include "game.h"
 
-static void	print_lose(t_env *env)
-{
-	clear();
-	mvprintw(LINES / 2, COLS / 2 - 4, "YOU LOSE");
-	mvhline(LINES / 2 - 2, COLS / 2 - 10, 0, 21);
-	mvvline(LINES / 2 - 1, COLS / 2 - 10, 0, 4);
-	mvvline(LINES / 2 - 1, COLS / 2 + 10, 0, 4);
-	mvhline(LINES / 2 + 2, COLS / 2 - 10, 0, 21);
-	refresh();
-	sleep(5);
-	exit_game(env);
-}
+// static void	print_lose(t_env *env)
+// {
+// 	clear();
+// 	mvprintw(LINES / 2, COLS / 2 - 4, "YOU LOSE");
+// 	mvhline(LINES / 2 - 2, COLS / 2 - 10, 0, 21);
+// 	mvvline(LINES / 2 - 1, COLS / 2 - 10, 0, 4);
+// 	mvvline(LINES / 2 - 1, COLS / 2 + 10, 0, 4);
+// 	mvhline(LINES / 2 + 2, COLS / 2 - 10, 0, 21);
+// 	refresh();
+// 	sleep(5);
+// 	exit_game(env);
+// }
 
 void ft_check_status(t_env *env)
 {
@@ -47,6 +47,6 @@ void ft_check_status(t_env *env)
 			stat += 1;
 		x++;
 	}
-	if (!stat)
-		print_lose(env);
+// 	if (!stat)
+// 		print_lose(env);
 }

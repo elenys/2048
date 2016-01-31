@@ -33,6 +33,7 @@ typedef struct		s_env
 	int				up;
 	int				down;
 	int				max;
+	int				cont;
 	WINDOW			*win;
 }					t_env;
 

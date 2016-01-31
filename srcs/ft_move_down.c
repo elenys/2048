@@ -28,24 +28,27 @@ static int		t_col(int *tab, int x, int tab_s)
 }
 
 
-static void		ft_move_down2(int *tab, int x, int *on , int tab_s)
+static void		ft_move_down2(t_env *env, int x, int *on , int tab_s)
 {
 	int i;
 
 	i = (tab_s - 1) - (3 - (x % TAB_SIZE));
 	while(i > x)
 	{
-		if (tab[i] != 0 && tab[i] == tab[x] && on[0] == 0 && t_col(tab, x, tab_s))
+		if (env->board[i] != 0 && env->board[i] == env->board[x] && 
+			on[0] == 0 && t_col(env->board, x, tab_s))
 		{
-			tab[i] += tab[x];
-			tab[x] = 0;
+			env->board[i] += env->board[x];
+			env->board[x] = 0;
 			on[0] = 1;
 			on[1] = 1;
+			env->down = 1;
+			env->max = (env->board[1] > env->max) ? env->board[1] : env->max;
 		}
-		else if (tab[i] == 0)
+		else if (env->board[i] == 0)
 		{
-			tab[i] = tab[x];
-			tab[x] = 0;
+			env->board[i] = env->board[x];
+			env->board[x] = 0;
 			on[0] = 0;
 			on[1] = 1;
 		}
@@ -68,7 +71,7 @@ int		ft_move_down(int *tab, int tab_s, int x, t_env *env)
 		while (x > -1)
 		{
 			if (tab[x] != 0)
-				ft_move_down2(tab, x, on, tab_s);
+				ft_move_down2(env, x, on, tab_s);
 			if ((x / TAB_SIZE) == 0 && tab[x + TAB_SIZE] == tab[x])
 			{
 				tab[x + TAB_SIZE] += tab[x];
@@ -81,10 +84,3 @@ int		ft_move_down(int *tab, int tab_s, int x, t_env *env)
 	}
 	return (on[1]);
 }
-
-
-// |2||4||4||4| 3 0
-// |2||0||4||4| 2 1
-// |8||9||10||11| 1 2
-// |0||2||2||0| 0 3
-

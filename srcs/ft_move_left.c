@@ -27,25 +27,28 @@ static int		t_line(int *tab, int *tmpx, int x)
 	return (1);
 }
 
-static void		ft_move_left2(int *tab, int x, int *tmpx, int *on)
+static void		ft_move_left2(t_env *env, int x, int *tmpx, int *on)
 {
-	if ((tab[x - *tmpx]) == 0)
+	if ((env->board[x - *tmpx]) == 0)
 	{
-		tab[x - *tmpx] = tab[x];
-		tab[x] = 0;
+		env->board[x - *tmpx] = env->board[x];
+		env->board[x] = 0;
 		on[0] = 0;
 		on[1] = 0;
 		on[2] = 1;
+		env->left = 1;
+		env->max = (env->board[1] > env->max) ? env->board[1] : env->max;
 	}
-	else if ((tab[x - *tmpx]) == tab[x] && on[1] == 0 && t_line(tab, tmpx, x))
+	else if ((env->board[x - *tmpx]) == env->board[x] && on[1] == 0 && 
+		t_line(env->board, tmpx, x))
 	{
-		tab[x - *tmpx] += tab[x];
-		tab[x] = 0;
+		env->board[x - *tmpx] += env->board[x];
+		env->board[x] = 0;
 		on[0] = 0;
 		on[1] = 1;
 		on[2] = 1;
 	}
-	else if ((tab[x - *tmpx]) == tab[x] && on[1] == 1)
+	else if ((env->board[x - *tmpx]) == env->board[x] && on[1] == 1)
 		on[1] = 0;
 }
 
@@ -53,7 +56,6 @@ int		ft_move_left(int *tab, int tab_s, int x, t_env *env)
 {
 	int tmpx;
 	int on[3];
-
 
 	on[1] = 0;
 	on[2] = 0;
@@ -65,7 +67,7 @@ int		ft_move_left(int *tab, int tab_s, int x, t_env *env)
 			on[0] = 1;
 			while (on[0] && tmpx != 0)
 			{
-				ft_move_left2(tab, x, &tmpx, on);
+				ft_move_left2(env, x, &tmpx, on);
 				--tmpx;
 			}
 		}

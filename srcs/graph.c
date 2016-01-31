@@ -6,20 +6,21 @@
 /*   By: bmartins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 13:50:47 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 16:34:19 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 18:19:21 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-void		exit_game(t_env *env)
+static void		reset_touch(t_env *env)
 {
-	endwin();
-	free(env->board);
-	exit(0);
+	env->up = 0;
+	env->down = 0;
+	env->left = 0;
+	env->right = 0;
 }
 
-static void	init_graph(void)
+static void		init_graph(void)
 {
 	initscr();
 	cbreak();
@@ -27,7 +28,7 @@ static void	init_graph(void)
 	noecho();
 }
 
-static int	get_key(t_env *env, int ch)
+static int		get_key(t_env *env, int ch)
 {
 	int move;
 
@@ -43,22 +44,22 @@ static int	get_key(t_env *env, int ch)
 	else if (ch == 410)
 		check_size();
 	else if (ch == 27)
-		exit_game(env);
+		env->exit = 1;
 	return (move);
 }
 
-void		game_loop(t_env *env)
+void			game_loop(t_env *env)
 {
 	init_graph();
-	while (1)
+	while (env->exit == 0)
 	{
+		winv_valid(env);
 		print_board(env);
 		if (get_key(env, getch()))
 		{
-			env->up = 0;
 			rand_num(env);
+
 		}
-		ft_check_status(env);
-		// winv_valid(env);
+		reset_touch(env);
 	}
 }

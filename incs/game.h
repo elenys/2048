@@ -26,10 +26,10 @@ enum e_const
 
 int			*ft_creat_tab(int size);
 
-void		ft_move_left(int *tab, int tab_s, int x);
-void		ft_move_right(int *tab, int tab_s);
-void		ft_move_up(int *tab, int x);
-void		ft_move_down(int *tab, int tab_s, int x);
+int		ft_move_left(int *tab, int tab_s, int x);
+int		ft_move_right(int *tab, int tab_s);
+int		ft_move_up(int *tab, int x);
+int		ft_move_down(int *tab, int tab_s, int x);
 int			ft_power_x(int x);
 int			winv_valid(void);
 

@@ -35,48 +35,51 @@ static void		ft_move_down2(int *tab, int x, int *on , int tab_s)
 	i = (tab_s - 1) - (3 - (x % TAB_SIZE));
 	while(i > x)
 	{
-		if (tab[i] != 0 && tab[i] == tab[x] && *on == 0 && t_col(tab, x, tab_s))
+		if (tab[i] != 0 && tab[i] == tab[x] && on[0] == 0 && t_col(tab, x, tab_s))
 		{
 			tab[i] += tab[x];
 			tab[x] = 0;
-			*on = 1;
+			on[0] = 1;
+			on[1] = 1;
 		}
 		else if (tab[i] == 0)
 		{
 			tab[i] = tab[x];
 			tab[x] = 0;
-			*on = 0;
+			on[0] = 0;
+			on[1] = 1;
 		}
 		i -= TAB_SIZE;
 	}
 }
 
-void		ft_move_down(int *tab, int tab_s, int x)
+int		ft_move_down(int *tab, int tab_s, int x)
 {
 	int i;
 	int t;
-	int on;
+	int on[2];
 
 	i = TAB_SIZE;
 	t = 0;
 	while(i > 0)
 	{
 		x = 11 - t;
-		on = 0;
+		on[0] = 0;
 		while (x > -1)
 		{
 			if (tab[x] != 0)
-				ft_move_down2(tab, x, &on, tab_s);
-			// if ((x / TAB_SIZE) == 0 && tab[x + TAB_SIZE] == tab[x])
-			// {
-			// 	tab[x + TAB_SIZE] += tab[x];
-			// 	tab[x] = 0;
-			// }
+				ft_move_down2(tab, x, on, tab_s);
+			if ((x / TAB_SIZE) == 0 && tab[x + TAB_SIZE] == tab[x])
+			{
+				tab[x + TAB_SIZE] += tab[x];
+				tab[x] = 0;
+			}
 			x -= TAB_SIZE;
 		}
 		--i;
 		++t;
 	}
+	return (on[1]);
 }
 
 

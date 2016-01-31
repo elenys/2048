@@ -6,6 +6,7 @@
 /*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 10:33:14 by bmartins          #+#    #+#             */
+/*   Updated: 2016/01/31 19:40:43 by bmartins         ###   ########.fr       */
 /*   Updated: 2016/01/31 19:25:51 by amerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -19,7 +20,7 @@
 # include <time.h>
 
 # define TAB_SIZE 4
-# define WIN_VALUE 2048
+# define WIN_VALUE 4
 
 typedef struct		s_env
 {

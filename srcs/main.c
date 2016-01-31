@@ -6,16 +6,28 @@
 /*   By: amerelo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:21:03 by amerelo           #+#    #+#             */
-/*   Updated: 2016/01/31 19:04:22 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 19:38:32 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
+static void init_max(t_env *env)
+{
+	int i;
+
+	i = 0;
+	while (i < 16)
+	{
+		if (env->board[i] > env->max)
+			env->max = env->board[i];
+		i++;
+	}
+}
+
 static void	init_env(t_env *env)
 {
 	env->up = 0;
-	env->max = 0;
 	env->cont = 0;
 	env->left = 0;
 	env->down = 0;
@@ -24,6 +36,7 @@ static void	init_env(t_env *env)
 	env->board = ft_creat_tab(TAB_SIZE);
 	rand_num(env);
 	rand_num(env);
+	init_max(env);
 }
 
 int			main(void)

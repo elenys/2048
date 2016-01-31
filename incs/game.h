@@ -6,7 +6,7 @@
 /*   By: bmartins <bmartins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 10:33:14 by bmartins          #+#    #+#             */
-/*   Updated: 2016/01/31 17:03:18 by bmartins         ###   ########.fr       */
+/*   Updated: 2016/01/31 18:16:46 by bmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct		s_env
 	int				up;
 	int				down;
 	int				max;
+	int				cont;
+	int				exit;
 	WINDOW			*win;
 }					t_env;
 
